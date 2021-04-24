@@ -1,0 +1,28 @@
+import math
+import random
+
+# Fi[n] = Fi[n - 1] + Fi[n - 2]
+
+# Returns array of first n Fibonacci numbers.
+def fibonacci_series(n):
+    ar = []
+    ar.append(0)
+    ar.append(1)
+    if n == 1:
+        return [0]
+    if n == 2:
+        return [0, 1]
+    if n > 2:
+        for i in range(2, n):
+            ar.append(ar[i - 1] + ar[i - 2])
+        return ar
+
+# Finding Golden Ratio.
+# GR == 1.618....
+# (rt(5) + 1)/2 = 1.618033988749895
+def golden_ratio(n):
+    ar = []
+    for i in range(2, n):
+        g = fibonacci_series(i + 1)[i]/float(fibonacci_series(i)[i - 1])
+        ar.append(g)
+    return ar
